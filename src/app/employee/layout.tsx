@@ -33,6 +33,12 @@ export default function EmployeeLayout({ children }: { children: React.ReactNode
     }
   }, [currentUser, loading, router]);
 
+  React.useEffect(() => {
+    if (typeof window !== 'undefined' && window.innerWidth > 768) {
+      setSidebarOpen(true);
+    }
+  }, [setSidebarOpen]);
+
   if (loading) {
     return (
       <div className="flex-center flex-col" style={{ minHeight: '100vh', gap: '16px' }}>
@@ -124,10 +130,10 @@ export default function EmployeeLayout({ children }: { children: React.ReactNode
       </aside>
 
       {/* Main Body */}
-      <div className="app-body">
+      <div className={`app-body ${sidebarOpen ? 'sidebar-open' : ''}`}>
         <header className="app-header">
           <div className="header-left">
-            <button onClick={() => setSidebarOpen(true)} className="mobile-only-btn"><Menu /></button>
+            <button onClick={() => setSidebarOpen(!sidebarOpen)} className="sidebar-toggle-btn"><Menu /></button>
             <h2 className="view-title">{getPageTitle()}</h2>
           </div>
           <div className="header-right">

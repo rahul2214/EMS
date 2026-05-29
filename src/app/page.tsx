@@ -124,13 +124,7 @@ export default function Home() {
           </button>
         </form>
 
-        <div className="login-footer">
-          <p>Demo accounts:</p>
-          <div className="demo-credentials">
-            <div><span>Employee:</span> <code>employee@company.com</code> / <code>emp123</code></div>
-            <div><span>Admin:</span> <code>admin@company.com</code> / <code>admin123</code></div>
-          </div>
-        </div>
+
       </div>
     </div>
   );
