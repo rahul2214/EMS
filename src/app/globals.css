@@ -516,10 +516,7 @@ input:focus, select:focus, textarea:focus {
     flex-direction: column;
     height: 100vh;
     position: fixed;
-    left: 0;
-    top: 0;
     z-index: 100;
-    transform: translateX(-100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -648,19 +645,13 @@ input:focus, select:focus, textarea:focus {
 /* App Body / Scrollable Content container */
 .app-body {
     flex: 1;
-    margin-left: 0;
+    margin-left: var(--sidebar-width);
     display: flex;
     flex-direction: column;
     height: 100vh;
     background-color: var(--bg-primary);
-    width: 100%;
-    overflow: hidden;
-    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.app-body.sidebar-open {
-    margin-left: var(--sidebar-width);
     width: calc(100% - var(--sidebar-width));
+    overflow: hidden;
 }
 
 /* Top bar Header */
@@ -730,24 +721,6 @@ input:focus, select:focus, textarea:focus {
     padding: 8px;
     border-radius: var(--radius-sm);
     transition: var(--trans-fast);
-}
-
-.sidebar-toggle-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    color: var(--text-main);
-    cursor: pointer;
-    padding: 8px;
-    border-radius: var(--radius-sm);
-    transition: var(--trans-fast);
-    margin-right: 12px;
-}
-
-.sidebar-toggle-btn:hover {
-    background: var(--bg-tertiary);
 }
 
 .mobile-only-btn:hover {
@@ -1322,9 +1295,9 @@ tbody tr:hover {
         transform: translateX(0);
     }
     
-    .app-body, .app-body.sidebar-open {
-        margin-left: 0 !important;
-        width: 100% !important;
+    .app-body {
+        margin-left: 0;
+        width: 100%;
     }
     
     .app-header {
